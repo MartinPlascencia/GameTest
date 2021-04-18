@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class GameMenuManager : MonoBehaviour
@@ -10,14 +11,26 @@ public class GameMenuManager : MonoBehaviour
     Transform characterTransform;
     [Header("UI Assets")]
     public CanvasGroup whiteFade;
+    public Text pickText;
+    public GameObject aimImage;
+
+    public static GameMenuManager instance;
 
     void Awake(){
+        HideItemText();
+        SetAim(false);
+        instance = this;
         characterTransform = characterAnimator.transform;
         characterAnimator.Play("Macarena_Dance");
     }
+
     public void ChangeCharacterAnimation(string animationName){
         SetFade();
         characterTransform.transform.rotation = Quaternion.Euler(0,180,0);
+    }
+
+    public void SetAim(bool active){
+        aimImage.SetActive(active);
     }
 
     void SetFade(){
@@ -27,5 +40,14 @@ public class GameMenuManager : MonoBehaviour
 
     void Update(){
         characterTransform.Rotate(0,rotationSpeed,0);
+    }
+
+    public void SetItemText(string itemName){
+        pickText.text = "Press right click\nto get <color=red>" + itemName + "</color>";
+        pickText.gameObject.SetActive(true);
+    }
+
+    public void HideItemText(){
+        pickText.gameObject.SetActive(false);
     }
 }
