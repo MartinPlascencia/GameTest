@@ -10,7 +10,7 @@ public class GunBehaviour : MonoBehaviour
     public float shootDelay = 1.2f;
     public string soundName;
     [Header("Gun Assets")]
+    public Transform bulletPivot;
     public GameObject bullet;
-    public GameObject explosion;
     
 }
