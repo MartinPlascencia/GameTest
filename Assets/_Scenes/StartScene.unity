@@ -1334,8 +1334,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1459370245}
-        m_MethodName: ChangeCharacterAnimation
-        m_Mode: 5
+        m_MethodName: GoToGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1501,6 +1501,7 @@ MonoBehaviour:
   characterAnimator: {fileID: 2142877380}
   rotationSpeed: 0.3
   whiteFade: {fileID: 138050395}
+  startGameButton: {fileID: 1390243039}
 --- !u!1 &1499622348
 GameObject:
   m_ObjectHideFlags: 0

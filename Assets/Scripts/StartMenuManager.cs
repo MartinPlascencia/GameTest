@@ -10,14 +10,18 @@ public class StartMenuManager : MonoBehaviour
     Transform characterTransform;
     [Header("UI Assets")]
     public CanvasGroup whiteFade;
+    public GameObject startGameButton;
 
     void Awake(){
+        startGameButton.SetActive(false);
         characterTransform = characterAnimator.transform;
     }
     public void ChangeCharacterAnimation(string animationName){
         characterAnimator.Play(animationName);
         SetFade();
         characterTransform.transform.rotation = Quaternion.Euler(0,180,0);
+        if(!startGameButton.activeSelf)
+            startGameButton.SetActive(true);
     }
 
     public void GoToGame(){
