@@ -14,6 +14,6 @@ public class ItemPickerBehaviour : MonoBehaviour
         item.transform.SetParent(this.transform);  
         item.transform.localPosition = new Vector3(0,groundOffset,0);
         item.transform.localRotation = Quaternion.Euler(0,0,90);
-        itemName = item.GetComponent<GunBehaviour>().gunName;
+        itemName = item.GetComponent<GunBehaviour>().data.gunName;
     }
 }

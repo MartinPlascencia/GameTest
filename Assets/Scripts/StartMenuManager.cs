@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class StartMenuManager : MonoBehaviour
@@ -16,7 +17,13 @@ public class StartMenuManager : MonoBehaviour
         startGameButton.SetActive(false);
         characterTransform = characterAnimator.transform;
     }
+
+    void Start(){
+        SetFade();
+    }
+
     public void ChangeCharacterAnimation(string animationName){
+        GameManager.instance.danceName = animationName;
         characterAnimator.Play(animationName);
         SetFade();
         characterTransform.transform.rotation = Quaternion.Euler(0,180,0);
@@ -25,7 +32,9 @@ public class StartMenuManager : MonoBehaviour
     }
 
     public void GoToGame(){
-        
+        whiteFade.DOFade(1f,1f).OnComplete(()=>{
+            SceneManager.LoadScene("GameScene");
+        });
     }
 
     void SetFade(){

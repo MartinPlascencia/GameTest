@@ -7,7 +7,11 @@ public class GunCharacterController : MonoBehaviour
     [Header("Gun Stats")]
     public Transform gunPivot;
     public Animator gunAnimator;
+    public Transform bulletPivot;
+    [System.NonSerialized]
     public GunBehaviour currentGun = null;
+    [Header("Scene Assets")]
+    public CubeManager cubeManager;
     int pickID = 0;
     bool canShoot = true;
 
@@ -35,12 +39,36 @@ public class GunCharacterController : MonoBehaviour
             StartCoroutine("ShootGun");
         }
 
+        if(Input.GetKeyDown("f")){
+            cubeManager.RestartPositions();
+        }
+
     }
 
     IEnumerator ShootGun(){
         canShoot = false;
+        currentGun.muzzleParticles.Play(true);
+
+        GameObject bullet = PoolManager.instance.GetBullet(currentGun.data.bulletID);
+        bullet.GetComponent<BulletBehaviour>().gunParent = currentGun;
+        bullet.transform.parent = null;
+        //bullet.transform.localScale = new Vector3(1,1,1);
+        bullet.transform.position = currentGun.bulletPivot.position;
+        bullet.transform.rotation = currentGun.bulletPivot.rotation;
+        //bullet.transform.position = bulletPivot.position;
+        //bullet.transform.rotation = bulletPivot.rotation;
+
+        Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+        bulletRigidbody.velocity = Vector3.zero;
+        bulletRigidbody.angularVelocity = Vector3.zero;
+        bulletRigidbody.AddForce(bullet.transform.forward *  currentGun.data.bulletSpeed);
+        //if(currentGun.bulletID == 1)
+        if(currentGun.data.isParabolic)
+            bulletRigidbody.AddForce(new Vector3(0,currentGun.data.bulletSpeed * 0.3f,0));
+
         gunAnimator.Play("ShootGun");
-        yield return new WaitForSeconds(currentGun.shootDelay);
+
+        yield return new WaitForSeconds(currentGun.data.shootDelay);
         canShoot = true;
     }
 
@@ -49,7 +77,7 @@ public class GunCharacterController : MonoBehaviour
         if(currentGun == null){
             GameMenuManager.instance.SetAim(true);
         }else{
-            PoolManager.instance.RecycleGun(currentGun.gameObject);
+            PoolManager.instance.RecycleItem(currentGun.gameObject);
         }
         currentGun = PoolManager.instance.GetGun(pickID).GetComponent<GunBehaviour>();
         currentGun.transform.SetParent(gunPivot);

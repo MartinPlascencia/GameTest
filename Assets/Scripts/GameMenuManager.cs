@@ -21,7 +21,18 @@ public class GameMenuManager : MonoBehaviour
         SetAim(false);
         instance = this;
         characterTransform = characterAnimator.transform;
-        characterAnimator.Play("Macarena_Dance");
+        SetDance(GameManager.instance.danceName);
+    }
+
+    void SetDance(string name){
+        string danceName = "Macarena_Dance";
+        if(name != null)
+            danceName = name;
+        characterAnimator.Play(danceName);
+    }
+
+    void Start(){
+        SetFade();
     }
 
     public void ChangeCharacterAnimation(string animationName){
@@ -33,7 +44,7 @@ public class GameMenuManager : MonoBehaviour
         aimImage.SetActive(active);
     }
 
-    void SetFade(){
+    public void SetFade(){
         whiteFade.alpha = 1;
         whiteFade.DOFade(0f,0.5f);
     }
