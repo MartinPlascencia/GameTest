@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7130089907561504538}
-  m_Mesh: {fileID: 4300006, guid: d19a3d4883acbe9479fb1517c870cb35, type: 3}
+  m_Mesh: {fileID: 4300004, guid: e16953ee70c66b64aacb5cfc435bfe21, type: 3}
 --- !u!23 &7107415362407289036
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 81719f204569ab8428bb891c67998f40, type: 2}
+  - {fileID: 2100000, guid: 56200b0074d143e4ba52de1d3bbc9890, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,15 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5cc27ea8be77a243bfa3ad0b3448b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunName: Orbital Gun
-  gunCode: 3
-  shootDelay: 1.5
-  bulletSpeed: 500
-  explosionRadius: 5
-  effectForce: 5
-  effectTime: 3
-  soundName: 
-  bulletID: 3
   data: {fileID: 11400000, guid: 6687ef2fe80ea5547915343893f0dc3b, type: 2}
   bulletPivot: {fileID: 6399778780202159892}
   muzzleParticles: {fileID: 7739941520024284981}

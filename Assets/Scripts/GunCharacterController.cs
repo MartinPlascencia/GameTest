@@ -46,6 +46,9 @@ public class GunCharacterController : MonoBehaviour
     }
 
     IEnumerator ShootGun(){
+
+        //Debug.Log(currentGun.data.soundName);
+        SoundManager.instance.Play(currentGun.data.soundName);
         canShoot = false;
         currentGun.muzzleParticles.Play(true);
 
@@ -55,8 +58,6 @@ public class GunCharacterController : MonoBehaviour
         //bullet.transform.localScale = new Vector3(1,1,1);
         bullet.transform.position = currentGun.bulletPivot.position;
         bullet.transform.rotation = currentGun.bulletPivot.rotation;
-        //bullet.transform.position = bulletPivot.position;
-        //bullet.transform.rotation = bulletPivot.rotation;
 
         Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
         bulletRigidbody.velocity = Vector3.zero;
@@ -74,6 +75,7 @@ public class GunCharacterController : MonoBehaviour
 
     void SetGun(){
 
+        SoundManager.instance.Play("reload");
         if(currentGun == null){
             GameMenuManager.instance.SetAim(true);
         }else{

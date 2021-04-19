@@ -11,12 +11,15 @@ public class BulletBehaviour : MonoBehaviour
     public GunBehaviour gunParent;
 
     void OnTriggerEnter(Collider collider){
-        if(collider.CompareTag("Ground")){
+        if(collider.CompareTag("Ground") || collider.CompareTag("ShootCubes")){
             Explode();
         }
     }
 
     void Explode(){
+
+        GetComponent<Collider>().enabled = false;
+        SoundManager.instance.Play("laserExplosion");
         Rigidbody rigidbody = GetComponent<Rigidbody>();
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
@@ -34,8 +37,8 @@ public class BulletBehaviour : MonoBehaviour
 
         switch(bulletID){
             case 1:
-                float power = 400f;
-                float radius = 3.5f;
+                float power = gunParent.data.effectForce;
+                float radius = gunParent.data.explosionRadius;
                 Vector3 explosionPos = transform.position;
                 Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
                 foreach (Collider hit in colliders)

@@ -17,8 +17,8 @@ MonoBehaviour:
   bulletID: 2
   shootDelay: 3
   bulletSpeed: 600
-  explosionRadius: 6
+  explosionRadius: 10
   effectForce: -30
   effectTime: 3
-  isParabolic: 0
-  soundName: 
+  isParabolic: 1
+  soundName: laserShot2

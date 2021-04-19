@@ -19,10 +19,12 @@ public class StartMenuManager : MonoBehaviour
     }
 
     void Start(){
+        SoundManager.instance.PlayMusic("gameSong",0.3f);
         SetFade();
     }
 
     public void ChangeCharacterAnimation(string animationName){
+        SoundManager.instance.Play("spaceButton");
         GameManager.instance.danceName = animationName;
         characterAnimator.Play(animationName);
         SetFade();
@@ -32,6 +34,7 @@ public class StartMenuManager : MonoBehaviour
     }
 
     public void GoToGame(){
+        SoundManager.instance.Play("spaceButton");
         whiteFade.DOFade(1f,1f).OnComplete(()=>{
             SceneManager.LoadScene("GameScene");
         });
