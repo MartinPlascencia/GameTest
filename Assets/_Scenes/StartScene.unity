@@ -2281,46 +2281,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6169042628387132145, guid: f54b136d433021842a299f5478aa4a79,
-        type: 3}
-      propertyPath: audioList.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169042628387132145, guid: f54b136d433021842a299f5478aa4a79,
-        type: 3}
-      propertyPath: audioList.Array.data[0]
-      value: gameSong
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169042628387132145, guid: f54b136d433021842a299f5478aa4a79,
-        type: 3}
-      propertyPath: audioList.Array.data[1]
-      value: laserExplosion
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169042628387132145, guid: f54b136d433021842a299f5478aa4a79,
-        type: 3}
-      propertyPath: audioList.Array.data[2]
-      value: laserShot1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169042628387132145, guid: f54b136d433021842a299f5478aa4a79,
-        type: 3}
-      propertyPath: audioList.Array.data[3]
-      value: laserShot2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169042628387132145, guid: f54b136d433021842a299f5478aa4a79,
-        type: 3}
-      propertyPath: audioList.Array.data[4]
-      value: laserShot3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169042628387132145, guid: f54b136d433021842a299f5478aa4a79,
-        type: 3}
-      propertyPath: audioList.Array.data[5]
-      value: reload
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169042628387132145, guid: f54b136d433021842a299f5478aa4a79,
-        type: 3}
-      propertyPath: audioList.Array.data[6]
-      value: spaceButton
-      objectReference: {fileID: 0}
     - target: {fileID: 6169042628387132146, guid: f54b136d433021842a299f5478aa4a79,
         type: 3}
       propertyPath: m_RootOrder

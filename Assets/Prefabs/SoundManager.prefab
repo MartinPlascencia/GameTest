@@ -47,7 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioPrefix: 
   audioList:
-  - pop
+  - gameSong
+  - laserExplosion
+  - laserShot1
+  - laserShot2
+  - laserShot3
+  - reload
+  - spaceButton
   audioS: {fileID: 6169042628387132144}
   musicS: {fileID: 6169042628387132147}
   masterMixer: {fileID: 0}

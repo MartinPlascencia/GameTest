@@ -21,13 +21,13 @@ public class GameMenuManager : MonoBehaviour
         SetAim(false);
         instance = this;
         characterTransform = characterAnimator.transform;
-        SetDance(GameManager.instance.danceName);
+        SetDance();
     }
 
-    void SetDance(string name){
+    void SetDance(){
         string danceName = "Macarena_Dance";
-        if(name != null)
-            danceName = name;
+        if(GameManager.instance != null)
+            danceName = GameManager.instance.danceName;
         characterAnimator.Play(danceName);
     }
 
